@@ -10,3 +10,46 @@ sources:
        identifier: raw_gz_sales
      - name: ship
        identifier: raw_gz_ship
+
+models:
+  - name: product
+    description: product data
+    columns:
+      - name: products_id
+        description: ID produktu
+        tests:
+          - unique
+          - not_null
+      - name: purchase_price
+        description: cena zakupu
+  - name: sales
+    description: sales data
+    columns:
+      - name: date_date
+        description: day of article sold
+      - name: orders_id
+        description: id of the order
+        tests:
+          - unique
+          - not_null
+      - name: products_id
+        description: id of product
+      - name: revenue
+        description: to the company in eur
+      - name: quantity
+        description: qty of article sold
+  - name: ship
+    description: shipping data
+    columns:
+      - name: orders_id
+        description: nr zamowienia
+        tests:
+          - unique
+          - not_null
+      - name: shipping_fee
+        description: oplata za wysylke
+      - name: log_cost
+        description: chuj go wie
+      - name: ship_cost
+        description: jak wyzej
+     
