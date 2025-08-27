@@ -16,7 +16,7 @@ models:
     description: product data
     columns:
       - name: products_id
-        description: ID produktu
+        description: Primary key
         tests:
           - unique
           - not_null
@@ -29,20 +29,20 @@ models:
         description: day of article sold
       - name: orders_id
         description: id of the order
-        tests:
-          - unique
-          - not_null
       - name: products_id
         description: id of product
       - name: revenue
         description: to the company in eur
       - name: quantity
         description: qty of article sold
+    tests:
+      - unique:
+         column_name: "(orders_id || '-' || products_id)"
   - name: ship
     description: shipping data
     columns:
       - name: orders_id
-        description: nr zamowienia
+        description: Primary key
         tests:
           - unique
           - not_null
